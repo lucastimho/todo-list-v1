@@ -19,7 +19,7 @@ app.get("/", function(req, res) {
 
     var day = today.toLocaleDateString("en-US", options);
 
-    res.render("list", {kindOfDay: day, newListItem})
+    res.render("list", {kindOfDay: day, newListItems: item})
 })
 
 app.post("/", function(req, res) {
