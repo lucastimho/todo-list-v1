@@ -7,7 +7,7 @@ app.use(bodyParser.urlencoded({extended: true}));
 
 app.set('view engine', 'ejs');
 
-var item = [];
+var items = ["Buy Food", "Cook Food", "Eat Food"];
 
 app.get("/", function(req, res) {
     var today = new Date();
@@ -19,11 +19,11 @@ app.get("/", function(req, res) {
 
     var day = today.toLocaleDateString("en-US", options);
 
-    res.render("list", {kindOfDay: day, newListItems: item})
+    res.render("list", {kindOfDay: day, newListItems: items})
 })
 
 app.post("/", function(req, res) {
-    item.push(req.body.newItem);
+    items.push(req.body.newItem);
 
     res.redirect("/")
 })
