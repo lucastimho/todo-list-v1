@@ -11,7 +11,9 @@
         <li>Buy Food</li>
         <li>Cook Food</li>
         <li>Eat Food</li>
-        <li><% newListItem %></li>
+        <% item.forEach(function(n) { %>
+          <li><% n %></li>
+        <% }) %>
     </ul>
     <form action="post" action="/" class="">
         <input type="text" name="newItem" id="">
