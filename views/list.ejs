@@ -8,14 +8,17 @@
 </head>
 <body>
     <h1><% kindOfDay %></h1>
-    <ul>
+    <div class="box">
         <% newListItems.forEach(function(n) { %>
-          <li><%= n %></li>
+            <div class="item">
+                <input type="checkbox">
+                <p><%= n %></p>
+            </div>
         <% }) %>
-    </ul>
+    </div>
     <form action="post" action="/" class="">
-        <input type="text" name="newItem" id="">
-        <button type="submit" name="button">Add</button>
+        <input type="text" name="newItem" placeholder="New Item">
+        <button type="submit" name="button">+</button>
     </form>
 </body>
 </html>
