@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
-    <h1><% kindOfDay %></h1>
+    <h1><% listTitle %></h1>
     <div class="box">
         <% newListItems.forEach(function(n) { %>
             <div class="item">
@@ -18,7 +18,7 @@
     </div>
     <form action="post" action="/" class="">
         <input type="text" name="newItem" placeholder="New Item">
-        <button type="submit" name="button">+</button>
+        <button type="submit" name="button" value="<%= listItem %>">+</button>
     </form>
 </body>
 </html>
