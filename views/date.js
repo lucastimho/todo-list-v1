@@ -1,5 +1,7 @@
 // jshit esversion:6
 
+module.exports("Hello World")
+
 function getDate() {
     let today = new Date();
     let options = {
