@@ -1,1 +1,2 @@
-*.coveralls.yml
+*.gitignore
+node_modules/
