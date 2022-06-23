@@ -70,6 +70,16 @@ app.post("/", function(req, res){
   const item = new Item({
     name: itemName
   })
+  if (listName == "Today") {
+    item.save();
+    req.redirect("/")
+  } else {
+    List.findOne({name: listName}, function(err, foundList) {
+      foundList.items.push();
+      foundList.save();
+      res.redirect("/" + listName);
+    })
+  }
   item.save();
   res.redirect("/");
 });
