@@ -86,9 +86,18 @@ app.delete("/delete", function(req, res) {
 
 app.get("/:title", function(req,res){
   const customListName = req.params.title;
-  const list = new List({
-    name: customListName,
-    items: defaultItems
+  List.findOne({name: customListName}, function(err, foundList) {
+    if (!err) {
+      if (!foundList) {
+        const list = new List({
+          name: customListName,
+          items: defaultItems
+        })
+        list.save();
+      } else {
+        res.render("list"), {listTitle: foundList.name, newListItems: foundList.item}
+      }
+    }
   })
 });
 
