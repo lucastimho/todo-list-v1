@@ -18,6 +18,13 @@ const itemsSchema = {
   name: String
 }
 
+const listSchema = {
+  name: String,
+  items: [itemsSchema]
+}
+
+const List = mongoos.model("List", listSchema);
+
 const Item = mongoose.Model("Item", itemsSchema);
 
 const item1 = new Item ({
@@ -77,8 +84,12 @@ app.delete("/delete", function(req, res) {
   res.redirect("/");
 })
 
-app.get("/work", function(req,res){
-  res.render("list", {listTitle: "Work List", newListItems: workItems});
+app.get("/:title", function(req,res){
+  const customListName = req.params.title;
+  const list = new List({
+    name: customListName,
+    items: defaultItems
+  })
 });
 
 app.get("/about", function(req, res){
