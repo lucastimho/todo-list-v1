@@ -53,9 +53,7 @@ app.get("/", function(req, res) {
   })
 
 const day = date.getDate();
-
  
-
 });
 
 app.post("/", function(req, res){
@@ -68,6 +66,16 @@ app.post("/", function(req, res){
   item.save();
   res.redirect("/");
 });
+
+app.delete("/delete", function(req, res) {
+  const checkedItemId = req.body.checkbox;
+  Item.findByIdAndRemove(checkedItemId, function(err) {
+    if (!err) {
+      console.log("Successfully removed item")
+    }
+  })
+  res.redirect("/");
+})
 
 app.get("/work", function(req,res){
   res.render("list", {listTitle: "Work List", newListItems: workItems});
