@@ -4,6 +4,7 @@ const express = require("express");
 const bodyParser = require("body-parser");
 const mongoose = require("mongoose")
 const date = require(__dirname + "/date.js");
+const _ = require("lodash");
 
 const app = express();
 
@@ -105,7 +106,7 @@ app.delete("/delete", function(req, res) {
 })
 
 app.get("/:title", function(req,res){
-  const customListName = req.params.title;
+  const customListName = _.capitalize(req.params.title);
   List.findOne({name: customListName}, function(err, foundList) {
     if (!err) {
       if (!foundList) {
