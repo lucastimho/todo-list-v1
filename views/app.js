@@ -24,7 +24,7 @@ const listSchema = {
   items: [itemsSchema]
 }
 
-const List = mongoos.model("List", listSchema);
+const List = mongoose.Model("List", listSchema);
 
 const Item = mongoose.Model("Item", itemsSchema);
 
